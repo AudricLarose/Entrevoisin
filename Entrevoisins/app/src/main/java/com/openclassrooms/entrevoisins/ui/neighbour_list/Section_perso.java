@@ -53,7 +53,8 @@ public class Section_perso extends AppCompatActivity {
         });
         favoris=(FloatingActionButton) findViewById(R.id.favoris_btn);
         favoris_active=(FloatingActionButton) findViewById(R.id.favoris_active);
-        Bundle extras=getIntent().getExtras();
+
+        Bundle extras=getIntent().getExtras();                 // recupere Extra
         if (extras!=null) {
             String MessageNameB= extras.getString("Big_Name");
             String MessageName= extras.getString("Name");
@@ -70,9 +71,6 @@ public class Section_perso extends AppCompatActivity {
             if(alterbool==true){
                 favoris_active.setVisibility(View.VISIBLE);
             }
-            Log.d(TAG, " onclick position: " + position);
-            Log.d(TAG, " onclick liste favoris de base: "+liste_favoris);
-
             favoris.setOnClickListener(new View.OnClickListener() {
                 @SuppressLint("RestrictedApi")
                 @Override
@@ -84,8 +82,6 @@ public class Section_perso extends AppCompatActivity {
                     fav= mApiService.getNeighbours().get(position);
                     liste_favoris=mApiService.getFav();
                     mApiService.addFav(fav);
-                    Log.d(TAG, "onclick Fav: "+fav);
-                    Log.i(TAG, " onclick liste de Favoris ajout: " + liste_favoris);
                 }
             });
             favoris_active.setOnClickListener(new View.OnClickListener() {
@@ -97,14 +93,10 @@ public class Section_perso extends AppCompatActivity {
                     } else {
                         fav = mApiService.getFav().get(position);
                     }
-                        Log.d(TAG, " onclick position: " + position);
                         favoris_active.setVisibility(View.GONE);
                         favoris.setVisibility(View.VISIBLE);
                         mApiService.removeFav(fav);
-
                         Toast.makeText(Section_perso.this, "Favori: supprimé !", Toast.LENGTH_LONG).show();
-                        Log.d(TAG, " onclick Fav: " + fav);
-                        Log.i(TAG, " onClick: liste favoris suppression" + liste_favoris);
                     }
             });
         }

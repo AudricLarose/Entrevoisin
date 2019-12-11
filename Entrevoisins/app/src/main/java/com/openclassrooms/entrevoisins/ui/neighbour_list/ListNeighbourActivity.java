@@ -57,18 +57,12 @@ public class ListNeighbourActivity extends AppCompatActivity {
         mTabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                Log.d(TAG, "onTabSelected: view change");
                 mViewPager.setCurrentItem(tab.getPosition());
                 EventBus.getDefault().post(tab);
                 if (tab.getPosition()==0) {
-                    Log.i(TAG, "onTabSelected: position1");
                     position=true;
-                    NeighbourFragment.newInstance();
                 } else if (tab.getPosition()==1){
                     position=false;
-
-                    Log.i(TAG, "onTabSelected: position2");
-                    NeighbourFragmentFav.newInstance2();
                 }
             }
 

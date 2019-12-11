@@ -10,6 +10,5 @@ public interface NeighbourApiService {
     List<Neighbour> getFav();
     void addFav(Neighbour y);
     void removeFav(Neighbour y);
-
     void  deleteNeighbour(Neighbour neighbour);
 }

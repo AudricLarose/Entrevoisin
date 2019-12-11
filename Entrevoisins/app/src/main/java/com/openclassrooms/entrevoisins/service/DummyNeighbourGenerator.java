@@ -28,8 +28,9 @@ public abstract class DummyNeighbourGenerator {
 
 
     public static List<Neighbour> FavosFavos = Arrays.asList(
+            new Neighbour(7, "Laetitia", "http://i.pravatar.cc/150?u=a042581f4e29026703d")
+            );
 
-    );
     static List<Neighbour> Favos() {
         return new ArrayList<>(FavosFavos);
     }

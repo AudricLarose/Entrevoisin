@@ -78,26 +78,21 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
                 int id=neighbour.getId();
                 avatarUrl=neighbour.getAvatarUrl();
                 int position=mNeighbours.indexOf(neighbour);
-                Intent Test = new Intent(v.getContext(), Section_perso.class);
+                Intent intent = new Intent(v.getContext(), Section_perso.class);
                 list_favoris=mApiService.getFav();
-                Log.d(TAG, "onClick: liste favoris"+list_favoris);
-                Log.d(TAG, "onClick: neighbour "+neighbour);
                 if (list_favoris.contains(neighbour)) {
-
                     boolean alter= true;
-                    Log.d(TAG, "onClick: alter "+alter);
-                    Test.putExtra("alter", alter);
+                    intent.putExtra("alter", alter);
                } else {
-                  boolean alter=false;
-                    Log.d(TAG, "onClick: "+alter);
-                    Test.putExtra("alter", alter);
+                    boolean alter=false;
+                    intent.putExtra("alter", alter);
                }
-                Test.putExtra("Big_Name",trueName);
-                Test.putExtra("Name",trueName);
-                Test.putExtra("Location","Paris");
-                Test.putExtra("posi",position);
-                Test.putExtra("url",avatarUrl);
-                v.getContext().startActivity(Test);
+                intent.putExtra("Big_Name",trueName);
+                intent.putExtra("Name",trueName);
+                intent.putExtra("Location","Paris");
+                intent.putExtra("posi",position);
+                intent.putExtra("url",avatarUrl);
+                v.getContext().startActivity(intent);
             }
         });
     }
